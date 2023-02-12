@@ -1,14 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
     const options = ["Rock", "Paper", "Scissors"]
+    let word = "";
+    let playerSelection = "";
 
     function getComputerChoice(arr) {
         const randomIndex = Math.floor(Math.random() * arr.length);
         return arr[randomIndex];
     };
 
+    function propmtUser() {
+        while (!(options.includes(playerSelection))) {
+        word = prompt("Please, choose Rock, Paper or Scissors: ");
+        playerSelection = word.charAt(0).toUpperCase()+ word.slice(1);
+        };
+        return playerSelection;
+    };
+
     function playRound(you, opponent) {
         if (you === opponent) {
-            return ("It's a tie!");
+            return (`${you} vs ${opponent}! It's a tie!`);
         } else {
             if ((you === "Rock" && opponent === "Scissors")
             || (you === "Scissors" && opponent === "Paper")
@@ -20,17 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    function game(rounds = 5) {
+        for (let i = 0; i < rounds; i++) {
+            console.log(`${i+1} round:`);
+            console.log(playRound(propmtUser(), getComputerChoice(options)));
+        }
+    }
+
     console.log("Hi! Let\'s play 'Rock, Paper, Scissors!'");
-
-    let word = "";
-    let playerSelection = "";
-    while (!(options.includes(playerSelection))) {
-        console.log("Please, type Rock, Paper or Scissors!");
-        word = prompt("Your choice: ");
-        playerSelection = word.charAt(0).toUpperCase()+ word.slice(1);
-    };
-
-    const computerSelection = getComputerChoice(options);
-    console.log(playRound(playerSelection, computerSelection));
+    game();
 
 });
