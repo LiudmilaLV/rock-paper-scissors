@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const options = ["Rock", "Paper", "Scissors"]
-    let word = "";
-    let playerSelection = "";
 
     function getComputerChoice(arr) {
         const randomIndex = Math.floor(Math.random() * arr.length);
@@ -9,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function propmtUser() {
+        playerSelection = "";
         while (!(options.includes(playerSelection))) {
         word = prompt("Please, choose Rock, Paper or Scissors: ");
         playerSelection = word.charAt(0).toUpperCase()+ word.slice(1);
@@ -30,14 +28,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    function game(rounds = 5) {
+    function game(rounds) {
         for (let i = 0; i < rounds; i++) {
             console.log(`${i+1} round:`);
-            console.log(playRound(propmtUser(), getComputerChoice(options)));
+            playerSelection = propmtUser();
+            computerSelection = getComputerChoice(options);
+            console.log(playRound(playerSelection, computerSelection));
         }
     }
 
+    const options = ["Rock", "Paper", "Scissors"]
+    let word = "";
+    let playerSelection = "";
+    let computerSelection = "";
+    let rounds = "";
+
     console.log("Hi! Let\'s play 'Rock, Paper, Scissors!'");
-    game();
+    while (!(parseInt(rounds))) {
+        rounds = prompt("How many rounds would you like to play with me? (enter an integer)")
+    }
+
+    console.log(`Get ready. We are playing ${rounds} rounds.`)
+    game(parseInt(rounds));
 
 });
