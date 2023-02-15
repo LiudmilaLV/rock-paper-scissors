@@ -9,13 +9,29 @@
     <script src="game.js"></script>
 </head>
 <body class="container">
-    <div class="header"></div>
+    <div class="header">Let's play Rock-Paper-Scissors! </div>
     <div class="options">
             <button id="rock">Rock</button>
             <button id="paper">Paper</button>
             <button id="scissors">Scissors</button>
     </div>
-    <div class="result"></div>
+    <div class="results">
+        <div class="result-text-div">
+            <p class="result-text" id="round-text"></p>
+            <p class="result-text" id="win-text"></p>
+        </div>
+        <div class="score">
+            <div class="score-div">
+                <p class="score-text">You</p>
+                <div class="score-field" id="you"></div>
+            </div>
+            <p class="score-div" id="colon">:</p>
+            <div class="score-div">
+                <p class="score-text">Computer</p>
+                <div class="score-field" id="opponent"></div>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>

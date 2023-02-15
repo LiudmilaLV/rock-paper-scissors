@@ -1,40 +1,76 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const options = ["Rock", "Paper", "Scissors"]
+    let yourScore = 0;
+    let oppScore = 0;
     
     function getComputerChoice(arr) {
         const randomIndex = Math.floor(Math.random() * arr.length);
         return arr[randomIndex];
     };
 
-    function playRound(you, opponent) {
+    function playRound(you) {
+        const opponent = getComputerChoice(options);
         if (you === opponent) {
-            console.log(`${you} vs ${opponent}! It's a tie!`);
+            yourScore += 1;
+            oppScore += 1;
+            return([`${you} vs ${opponent}!`, yourScore, oppScore]);
         } else {
             if ((you === "Rock" && opponent === "Scissors")
             || (you === "Scissors" && opponent === "Paper")
             || (you === "Paper" && opponent === "Rock")) {
-                console.log(`You win! ${you} beats ${opponent}!`);
+                yourScore += 1;
+                return [`${you} beats ${opponent}!`, yourScore, oppScore]
             } else {
-                console.log(`You lose! ${opponent} beats ${you}!`);
+                oppScore += 1;
+                return([`${opponent} beats ${you}!`, yourScore, oppScore]);
             }
         }
     };
 
-    // function game(playerSelection, rounds = 1) {
-    //     for (let i = 0; i < rounds; i++) {
-    //         console.log(`${i+1} round:`);
-    //         console.log(playRound(playerSelection, computerSelection));
-    //     }
-    // }
-
-    
-
     const rock = document.getElementById("rock");
     const paper = document.getElementById("paper");
     const scissors = document.getElementById("scissors");
-    rock.addEventListener("click", () => playRound("Rock", getComputerChoice(options)));
-    paper.addEventListener("click", () => playRound("Paper", getComputerChoice(options)));
-    scissors.addEventListener("click", () => playRound("Scissors", getComputerChoice(options)));
+    const resultText = document.getElementById("round-text");
+    const winText = document.getElementById("win-text")
+    const you = document.getElementById("you");
+    const opp = document.getElementById("opponent");
 
+
+    function checkResults (yourchoice) {
+        let gameResults = [];
+        let winner = "";
+        winText.textContent = "";
+        gameResults = playRound(yourchoice);
+        you.textContent = gameResults[1];
+        opp.textContent = gameResults[2];
+        if (rounds < 5) {
+            resultText.textContent = gameResults[0];
+        } else {
+            resultText.textContent = "5 round game finished!";
+            if (yourScore > oppScore) {
+                winner = "You";
+            } else {
+                winner = "Computer";
+            }
+            winText.textContent = `${winner} won!`;
+            yourScore = 0;
+            oppScore = 0;
+            rounds = 0;
+        }
+    };
+
+    let rounds = 0;
+    rock.addEventListener("click", () => {
+        rounds += 1;
+        checkResults("Rock");
+    });
+    paper.addEventListener("click", () => {
+        rounds += 1;
+        checkResults("Paper");
+    });
+    scissors.addEventListener("click", () => {
+        rounds += 1;
+        checkResults("Scissors");
+    });
 });

@@ -1,18 +1,76 @@
-.container {
-    margin: 5rem 30rem;
+.container,
+.options,
+.results,
+.score,
+.score-div {
     display: flex;
+}
+
+.header,
+.score-div,
+.win-text {
+    font-weight: 800;
+}
+
+.container {
+    margin: 1rem;
     justify-content: center;
     flex-direction: column;
 }
 
-.options {
-    display: flex;
-    justify-content: space-around;
+.options,
+.results,
+.score {
+    justify-content: center;
+    flex-wrap: wrap;
+    
 }
 
-button {
+.options {
+    gap: 2rem;
+}
+
+button, div {
+    padding: 0.8rem 2rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 2rem;
-    padding: 0.8rem 2rem;
-    border-radius: 1rem;
+    text-align: center;
+}
+
+button,
+.score-field {
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(202, 225, 232);
+}
+
+.result-text-div {
+    width: 40%;
+}
+
+.score {
+    align-content: center;
+    justify-content: center;
+}
+
+.score-div,
+.result-text-div {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.score-text {
+    font-size: 1.5rem;
+}
+
+#colon {
+    margin-top: 4rem;
+}
+
+.score-field {
+    border-radius: 45%;
+    margin-left: 1rem;
+    height: 4rem;
+    width: 0.8rem;
+    background-color: rgb(240, 157, 157);
 }
