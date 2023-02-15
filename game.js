@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function checkResults (yourchoice) {
         let gameResults = [];
-        let winner = "";
         winText.textContent = "";
         gameResults = playRound(yourchoice);
         you.textContent = gameResults[1];
@@ -48,12 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
             resultText.textContent = gameResults[0];
         } else {
             resultText.textContent = "5 round game finished!";
-            if (yourScore > oppScore) {
-                winner = "You";
+            if (yourScore === oppScore) {
+                winText.textContent = "It's a Tie!";
+            } else if (yourScore > oppScore) {
+                winText.textContent = "You won!";
             } else {
-                winner = "Computer";
+                winText.textContent = "Computer won!";
             }
-            winText.textContent = `${winner} won!`;
             yourScore = 0;
             oppScore = 0;
             rounds = 0;
