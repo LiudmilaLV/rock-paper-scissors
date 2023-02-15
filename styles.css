@@ -1,0 +1,18 @@
+.container {
+    margin: 5rem 30rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    padding: 0.8rem 2rem;
+    border-radius: 1rem;
+}
