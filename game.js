@@ -43,13 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
         gameResults = playRound(yourchoice);
         you.textContent = gameResults[1];
         opp.textContent = gameResults[2];
-        if (rounds < 5) {
+        if ((yourScore < 5) && (oppScore < 5)) {
             resultText.textContent = gameResults[0];
         } else {
-            resultText.textContent = "5 round game finished!";
-            if (yourScore === oppScore) {
+            resultText.textContent = "5 points reached!";
+            if ((yourScore === 5) && (oppScore === 5)) {
                 winText.textContent = "It's a Tie!";
-            } else if (yourScore > oppScore) {
+            } else if ((yourScore === 5) && (oppScore != 5)) {
                 winText.textContent = "You won!";
             } else {
                 winText.textContent = "Computer won!";

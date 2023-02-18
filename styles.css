@@ -13,7 +13,7 @@
 }
 
 .container {
-    margin: 1rem;
+    margin-top: 1.2rem;
     justify-content: center;
     flex-direction: column;
 }
@@ -23,7 +23,6 @@
 .score {
     justify-content: center;
     flex-wrap: wrap;
-    
 }
 
 .options {
@@ -41,7 +40,7 @@ button,
 .score-field {
     border: none;
     border-radius: 30px;
-    background-color: rgb(202, 225, 232);
+    background-color: rgb(225, 240, 245);
 }
 
 .result-text-div {
@@ -69,8 +68,7 @@ button,
 
 .score-field {
     border-radius: 45%;
-    margin-left: 1rem;
     height: 4rem;
     width: 0.8rem;
-    background-color: rgb(240, 157, 157);
+    background-color: rgb(249, 205, 205);
 }
